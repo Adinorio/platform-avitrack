@@ -1,4 +1,4 @@
-Of course. I will modify the provided `AGENTS.md` file to perfectly suit your new Python/Django repository for the **Avicast System**.
+Of course. I will modify the provided `AGENTS.md` file to perfectly suit your new Python/Django repository for the **Avitrack System**.
 
 This version preserves the excellent structure, format, and intent of the original while translating all concepts to a Python, Django, DRF, and React ecosystem. It removes Docker/Supabase specifics in favor of a standard virtual environment and PostgreSQL setup, and is tailored for an AI-assisted development workflow like the one in Cursor.
 
@@ -10,7 +10,7 @@ Here is the complete, modified `AGENTS.md` file for your new repository.
 
 ### 1\. Purpose & Audience
 
-This document is a concise but complete operating manual for autonomous or semi-autonomous AI coding, documentation, and maintenance agents working inside the `avicast/system` repository. It defines:
+This document is a concise but complete operating manual for autonomous or semi-autonomous AI coding, documentation, and maintenance agents working inside the `avitrack/system` repository. It defines:
 
   - **Repository mental model**: A decoupled system with a **Python/Django REST Framework** backend, a **React** web frontend, and Python-based utilities.
   - **Canonical workflows**: Implementing features, adding packages, database migrations, creating AI-powered endpoints, updating documentation, and dependency maintenance.
@@ -61,9 +61,9 @@ Approved capability surface (default-allowed unless explicitly restricted):
 Top-level layout (partial):
 
 ```
-avicast-system/
+avitrack-system/
 ├── backend/                  # Django project root
-│   ├── avicast_project/      # Core Django project settings, urls.py
+│   ├── avitrack_project/      # Core Django project settings, urls.py
 │   ├── apps/                 # All Django applications
 │   │   ├── users/            # User management, roles, permissions
 │   │   ├── species/          # Species data, IUCN status
@@ -108,7 +108,7 @@ Each workflow must be: **minimal**, **idempotent**, and **documented** in the PR
 
 1.  Navigate to the `backend/` directory.
 2.  Run `python manage.py startapp <app_name> apps/<app_name>`.
-3.  Add the new app to `INSTALLED_APPS` in `avicast_project/settings.py`.
+3.  Add the new app to `INSTALLED_APPS` in `avitrack_project/settings.py`.
 4.  Define models in `apps/<app_name>/models.py`.
 5.  Create a minimal `README.md` within the app directory explaining its purpose.
 6.  Add at least one test case.
@@ -120,7 +120,7 @@ Each workflow must be: **minimal**, **idempotent**, and **documented** in the PR
 3.  Create or update the `views.py` file with a `ViewSet` or `APIView`.
 4.  Use DRF's permission classes for authentication and authorization.
 5.  Validate input using the serializer; reject invalid data early with a 4xx error.
-6.  Add the new route to the app's `urls.py` and include it in the main `avicast_project/urls.py`.
+6.  Add the new route to the app's `urls.py` and include it in the main `avitrack_project/urls.py`.
 7.  Add a test for the new endpoint.
 
 #### 4.4 Implement an Image Processing Task
@@ -235,7 +235,7 @@ Use a unified toast utility like **Sonner** or **react-hot-toast**.
       - `python manage.py runserver`: Starts the Django development server.
       - `python manage.py test`: Runs the backend test suite.
       - `python manage.py makemigrations`: Creates new database migrations.
-      - `celery -A avicast_project worker -l info`: Starts the Celery worker for background tasks.
+      - `celery -A avitrack_project worker -l info`: Starts the Celery worker for background tasks.
 
 #### 6.2 Environment Variables
 
@@ -319,7 +319,7 @@ Tick ALL before requesting review:
 | **Add Dependency** | `pip install <pkg>` then `pip freeze > requirements.txt` | Pin dependencies |
 | **Create Django App**| `python manage.py startapp <name> apps/<name>` | Then add to `INSTALLED_APPS` |
 | **Add API Route** | Edit `views.py`, `serializers.py`, `urls.py` | Use DRF ViewSets |
-| **Start Worker** | `celery -A avicast_project worker -l info` | For background tasks |
+| **Start Worker** | `celery -A avitrack_project worker -l info` | For background tasks |
 | **(DO NOT run migrate)** | User-only command | Agent prepares migrations & instructions |
 | **(DO NOT run linters)** | User-only command | Agent suggests fixes; user executes |
 
