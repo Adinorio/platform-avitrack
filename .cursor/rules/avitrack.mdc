@@ -1,0 +1,19 @@
+---
+description: AVICAST AGENTS - Repository-level policy enforcement for Avitrack System
+globs:
+alwaysApply: true
+---
+
+# PROJECT RULES — AVICAST AGENTS (ENFORCE AGENTS.md)
+
+1. Always load and obey the repository-level policy file at `/AGENTS.md` before producing any design, code, migration, or documentation change recommendations.
+
+2. On every reply that proposes code or repository modification, include a single-line citation like: "AGENTS.md §<section-number-or-heading>". Example: "AGENTS.md §4.4 (AI Inference Integration)".
+
+3. If a requested change touches more than one app or requires a DB migration with data backfill > 30 LOC, stop and escalate: produce a clear question for the human operator and mark `ESCALATE` at the top of the reply.
+
+4. Do not assume Docker is available. If a request needs system-level changes (install Redis, PyTorch), show the exact commands and ask for explicit human approval before recommending execution.
+
+5. Respect the "Mandatory guardrails" in AGENTS.md: no secrets, no committing model weights, no destructive migrations without plan.
+
+6. If AGENTS.md cannot be found at `/AGENTS.md`, immediately stop and instruct the user to place it at the repository root.
